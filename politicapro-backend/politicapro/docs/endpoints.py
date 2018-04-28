@@ -8,4 +8,11 @@ api_endpoints = [
         'verb':'GET',
         'protected':False
     },
+    {
+        'name':'Stream',
+        'description':'Triggers the twitter stream to begin',
+        'url':'/twitter/stream/start',
+        'verb':'GET',
+        'protected':True
+    },
 ]

@@ -5,7 +5,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 # Import models
-# from politicapro.models import ???
+from politicapro.models import TweetCount, Tweet
 
 # Build app
 CONFIG_NAME = get_current_env()
