@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.main{
+    
+    font-size: inherit;
+    text-transform: capitalize;
+    display: inline-block;
+
+    & .pro{
+        margin-left:.1em;
+        padding: 0 .15em;
+        display: inline-block;
+        background-color: $color-main;
+        border-radius: .1em;
+    }
+}

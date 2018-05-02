@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://unpkg.com/purecss@1.0.0/build/pure-min.css');
+@import url('https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css');
+
+
+$main-font : 'Nunito', sans-serif;
+
+$transition : all 0.3s cubic-bezier(.25,.8,.25,1);
+
+$shadow-low : 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow-mid : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow-high : 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+$color-light : rgb(255, 255, 255);
+$color-dark : rgb(12, 12, 12);
+$color-main : rgb(0, 150, 45);
+
+body {
+    font-family: $main-font;
+    padding: 1em;
+}
+
+.center{
+    font-family: $main-font;
+    text-align: center;
+}
+
+button{
+    border-radius: .2em;
+    margin: .5em;
+    border: solid 2px black;
+    padding: .3em 1em;
+    font-family: $main-font;
+    outline: none;
+    box-shadow: $shadow-low;
+    transition: $transition;
+}
+
+button:hover{
+    background-color: $color-light;
+    box-shadow: $shadow-high;
+}
+
+button:active{
+    background-color: $color-light;
+    color:$color-dark;
+    box-shadow: $shadow-mid
+}
+
+.page-container{
+    padding: 2rem;
+}
+
+.space-down{
+    margin-top: 5em;
+}
+

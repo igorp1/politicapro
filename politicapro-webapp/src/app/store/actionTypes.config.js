@@ -1,2 +1,0 @@
-export const CREATE_TWEET = 'CREATE_TWEET';
-export const LOAD_TWEETS_SUCCESS = 'LOAD_TWEETS_SUCCESS';

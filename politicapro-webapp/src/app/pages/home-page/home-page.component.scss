@@ -1,0 +1,51 @@
+@import '../../../styles.scss';
+
+
+.card{
+
+    cursor: pointer;
+    overflow-x: hidden;
+    box-shadow: $shadow-low;
+    transition: $transition;
+    border: solid 2px white;
+    margin-bottom: 2em;
+
+    div.inner-container{
+
+        font-family: $main-font;
+        padding: 0 1em;
+
+        h1{
+            text-decoration: underline;
+            text-decoration-color: $color-main;
+        }
+
+        i.material-icons{
+            transition: $transition;
+            float:right;
+            opacity:0;
+            color: $color-main;
+        }
+        
+        
+    }
+
+    &:hover{
+        box-shadow: $shadow-high; 
+    }
+
+    &:active{
+        box-shadow: $shadow-mid; 
+    }
+
+    &:hover div.inner-container i.material-icons{
+        opacity:1;
+    }
+
+    
+    
+
+    
+
+
+}

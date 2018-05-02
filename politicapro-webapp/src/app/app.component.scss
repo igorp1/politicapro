@@ -1,0 +1,53 @@
+$menu-width : 200px;
+$transition : all 0.2s ease-out;
+
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+#layout.active #menu {
+    left: $menu-width;
+    width: $menu-width;
+}
+
+#layout.active .menu-link {
+    left: $menu-width;
+}
+
+
+
+@media (min-width: 48em) {
+
+    #layout {
+        padding-left: $menu-width; /* left col width "#menu" */
+        left: 0;
+    }
+
+    #layout.active .menu-link {
+        left: $menu-width;
+    }
+}
+
+
+
+
+
+@media (max-width: 48em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active {
+        position: relative;
+        left: $menu-width;
+    }
+}

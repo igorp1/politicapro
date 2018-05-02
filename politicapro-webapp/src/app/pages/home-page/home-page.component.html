@@ -1,0 +1,35 @@
+<div class="page-container">
+    <h1> <add-pro [word]='pageTitle'></add-pro> </h1>
+
+    <div class="pure-g space-down">
+        <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24 card" (click)="goTo('about')" >
+            <div class="inner-container">
+                <i class="material-icons">open_in_new</i>
+                <h1>About</h1>
+                <p><add-pro word='Política'></add-pro> tem por objetivo desenvolver ferramentas para análise do cenário político brasileiro.</p>        
+                
+            </div>
+        </div>
+        <div class="pure-u-md-1-24 pure-u-lg-1-24"></div>
+        <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24 card" (click)="goTo('termometro')" >
+            <div class="inner-container">
+                <i class="material-icons">open_in_new</i>
+                <h1>Termometro</h1>
+                <p>
+                    Todos os nosso indicadores em tempo real em um só lugar. 
+                </p>        
+            </div>
+        </div>
+
+        <div class="pure-u-md-1-24 pure-u-lg-1-24"></div>
+        <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24 card" (click)="goTo('devs')" >
+            <div class="inner-container">
+                <i class="material-icons">open_in_new</i>
+                <h1>Devs</h1>
+                <p>Explore a nossa API e use o <i>Get Started Guide</i> para criar seus próprios estudos com o nosso data insight.</p>   
+               
+            </div>
+        </div>
+    </div>
+
+</div>

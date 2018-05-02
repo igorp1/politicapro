@@ -1,0 +1,194 @@
+@import '../../../styles.scss';
+
+$menu-width : 200px;
+
+$color-menu-background : darken($color-light,5);
+$color-menu-text : $color-dark;
+$color-menu-option-background : $color-light ;
+$color-menu-option-text : $color-dark ;
+$color-menu-option-background-hover : $color-dark;
+$color-menu-option-text-hover : $color-main;
+
+i.material-icons{
+    vertical-align: bottom;
+}
+
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+}
+
+#layout.active #menu {
+    left: $menu-width;
+    width: $menu-width;
+}
+
+#layout.active .menu-link {
+    left: $menu-width;
+}
+    
+#menu {
+    margin-left: -$menu-width;
+    width: $menu-width;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; 
+    background: $color-menu-background;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: $shadow-low;
+}
+
+
+#menu a {
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    color: $color-menu-option-text;
+    padding: 0.6em 0 0.6em 0.6em;
+    border: none;
+    outline: none;
+}
+
+#menu .pure-menu,
+#menu .pure-menu ul {
+    border: none;
+    background: transparent;
+}
+
+    #menu li{
+        padding: .3em;
+        outline: none;
+    }
+
+    #menu li a{
+        cursor: pointer;
+        transition: $transition;
+        border-radius: .3em;
+    }
+
+    /*
+    Add that light border to separate items into groups.
+    */
+    #menu .pure-menu ul,
+    #menu .pure-menu .menu-item-divided {
+        border-top: 1px solid $color-dark;
+    }
+        /* 
+        Change color of the anchor links on hover/focus.
+        */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: $color-menu-option-background-hover;
+            color: $color-menu-option-text-hover;
+            box-shadow: $shadow-high;
+        }
+
+        #menu .pure-menu li a:active{
+            background: $color-menu-option-background-hover;
+            box-shadow: $shadow-mid;
+            color: lighten($color-menu-option-text-hover, 5);
+        }
+
+    /*
+    This styles the selected menu item `<li>`.
+    */
+    #menu .pure-menu-selected,
+    #menu .pure-menu-heading {
+        background-position: center;
+        background-size: cover
+    }
+        /*
+        This styles a link within a selected menu item `<li>`.
+        */
+        #menu .active-link a {
+            color: $color-main;
+            font-weight: bold;
+        }
+
+    /*
+    This styles the menu heading.
+    */
+    #menu .pure-menu-heading {
+
+        font-size: 1.3em;
+        color: black;
+        font-weight: bold;
+        margin: 0;
+    }
+
+.menu-link {
+    position: fixed;
+    display: block; 
+    top: 0;
+    left: 0; /* "#menu width" */
+    background: rgba(0,0,0,0.7);
+    padding: 0;
+    z-index: 10;
+    padding: .3em .3em;
+    border-bottom-right-radius: .2em;
+    color: white;
+}
+
+
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+@media (min-width: 48em) {
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    #layout {
+        padding-left: $menu-width; /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: $menu-width;
+    }
+
+    .menu-link {
+        position: fixed;
+        left: $menu-width;
+        display: none;
+    }
+
+    #layout.active .menu-link {
+        left: $menu-width;
+    }
+}
+
+@media (max-width: 48em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active {
+        position: relative;
+        left: $menu-width;
+    }
+}
