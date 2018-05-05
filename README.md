@@ -1,8 +1,7 @@
 # PoliticaPro
 📊 Data science study on Brazil's 2018 presidential election
 
-![logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjH-arch9baAhUCGJAKHbiXAxcQjRx6BAgAEAU&url=http%3A%2F%2Fwww.tse.jus.br%2Feleitor-e-eleicoes%2Feleicoes%2Feleicoes-2018&psig=AOvVaw2pwQCulPdqDm_RnqoM1emU&ust=1524767498524276)
-
+![logo](https://www.cheapcpapsupplies.com/blog/wp-content/uploads/2018/02/stats-gif.gif)
 
 ## Dev system requirements:
 You must have the following intalled in your machine:
@@ -19,7 +18,7 @@ This project was built using:
 | ------------- |:-------------:|
 | node          | 10.0.0        |
 | npm           | 6.0.0         |
-| python        | 3.6.3        |
+| python        | 3.6.3         |
 | pip           | 9.0.3         |
 | virtualenv    | 15.2.0        |
 
@@ -58,3 +57,13 @@ python manage.py db upgrade
 ``` 
 
 
+### /politicapro-webapp
+To install dependencies:
+```
+npm i
+```
+
+To start the aplication on your local run:
+```
+npm start
+```
