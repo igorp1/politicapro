@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { CountGraphData } from '../../components/mention-count-graph/mention-count-graph.component';
 
+import { PoliticaProMetricsApiService } from '../../service/politica-pro-metrics-api-service.service';
+
 @Component({
   selector: 'app-termometro',
   templateUrl: './termometro.component.html',
@@ -11,16 +13,24 @@ export class TermometroComponent implements OnInit {
 
   pageTitle : String = "Termometro";
 
-  twitterCountData : CountGraphData = {
-    labels: ['Lula', 'Bolsonaro', 'Joaquim Barbosa', 'Aécio Neves'],
-    counts: [65, 59, 80, 81],
-    countLabel: 'Tweet count'
-  } 
+  twitterCountData : CountGraphData;
 
 
-  constructor() { }
+  constructor(private metricsAPI : PoliticaProMetricsApiService) { }
 
   ngOnInit() {
+    this.beginServiceFetchInterval()
+  }
+
+  beginServiceFetchInterval(){
+    const intervalInSeconds = 1;
+    setInterval(()=>{
+      this.metricsAPI.fetchAllTimeCounts().subscribe(
+        (res)=>{
+          this.twitterCountData = res.data
+        }
+      )
+    }, intervalInSeconds*1000)
   }
 
 }

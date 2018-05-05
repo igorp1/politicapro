@@ -8,6 +8,8 @@ import { PagesModule } from './pages/pages.module';
 import { RoutingModule } from './routing/routing.module';
 import { ComponentsModule } from './components/components.module';
 
+import { PoliticaProMetricsApiService } from './service/politica-pro-metrics-api-service.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     PagesModule
   ],
-  providers: [],
+  providers: [HttpModule, PoliticaProMetricsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
