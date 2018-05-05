@@ -7,9 +7,6 @@ import politicapro
 
 from sqlalchemy import desc
 
-from ..graphQL.setup import schema
-
-
 class PoliticaProTestCase(TestCase):
 
     # SETUP/TEARDOWN

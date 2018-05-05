@@ -5,9 +5,7 @@ from sqlalchemy.sql.expression import func
 
 import json
 
-class TweetCount(db.Model):
-    id = db.Column(db.String, primary_key=True)
-    count = db.Column(db.Integer)
+from datetime import datetime
 
 class Tweet(db.Model):
 
@@ -55,7 +53,11 @@ class Tweet(db.Model):
         if raw_tweet['place']:
             self.place = raw_tweet['place']['full_name']
 
+class TweetCount(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    for_date = db.Column(db.DateTime, default=datetime.utcnow)
+    key = db.Column(db.String)
+    count = db.Column(db.Integer, default=0)
 
-
-
-
+    def __init__(self, key):
+        self.key = key

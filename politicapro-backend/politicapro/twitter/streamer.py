@@ -1,31 +1,28 @@
+from multiprocessing import Pool
 from .credentials import api_key, api_secret, access_token, access_token_secret
 
-from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
 from tweepy import Stream
+from tweepy import OAuthHandler
+from tweepy.streaming import StreamListener
+
+from ..models import Tweet
 
 from .trackers import trackers
+from .TrendModel import TrendModel
 
-from multiprocessing import Pool
-
-
-from politicapro import db
-
-from ..models import Tweet, TweetCount
-
-
+## Twitter 
 class TwitterStreamListener(StreamListener):
+
+    def __init__(self):
+        self.trend_model = TrendModel()
 
     def on_data(self, data):
         try:
-            # tweet
-            tweet = Tweet(data)
-            db.session.add(tweet)
-            # commit
-            db.session.commit()
+            # tweet = Tweet(data) <== use this to create tweet object
+            self.trend_model.account_for_tweet(data)
+
         except Exception as err:
             self.log_error(str(err))
-
 
         return True
 
@@ -60,12 +57,13 @@ class TwitterStream():
         self.stream = Stream(self.auth, self.listener)
         self.stream.filter(track=keywords)
  
-def stream_async_start_for_key(trackers):
-    TwitterStream(trackers)
+
+# functions to get stream running
+def stream_async_start_for_key(keywords):
+    TwitterStream(keywords)
 
 
 def start_twitter_stream():
-
     print('[PoliticaPro] Starting stream')
 
     pool = Pool(processes=1)

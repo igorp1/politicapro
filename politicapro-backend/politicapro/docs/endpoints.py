@@ -15,4 +15,11 @@ api_endpoints = [
         'verb':'GET',
         'protected':True
     },
+    {
+        'name':'Todays tracker',
+        'description':'Gets the trakers counts for today',
+        'url':'/twitter/count/today',
+        'verb':'GET',
+        'protected':False
+    }
 ]
