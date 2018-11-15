@@ -52,8 +52,6 @@ class TrendModel():
         counter.for_date = datetime.now()
         db.session.commit()
         
-        
-
 
 
 

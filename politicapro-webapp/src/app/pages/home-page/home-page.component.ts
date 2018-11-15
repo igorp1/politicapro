@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-import { APP_CONSTANTS } from '../../app.constants';
-
 
 @Component({
   selector: 'app-home-page',
